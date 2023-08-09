@@ -27,7 +27,7 @@ veracode_sast_pipeline_scan:
 veracode_sast_policy_scan:
   #The install trigger is used to run the policy scan on the default branch when the app is installed.
   install:
-    trigger: true
+    trigger: false
     branches_to_run:
       - default_branch
 
@@ -59,7 +59,7 @@ veracode_sast_policy_scan:
 veracode_sca_scan:
   #The install trigger is used to run the SCA scan on the default branch when the app is installed.
   install:
-    trigger: true
+    trigger: false
     branches_to_run:
       - default_branch
       
@@ -88,7 +88,7 @@ veracode_sca_scan:
 veracode-iac-secrets-scan:
   #The install trigger is used to run the IaC/Secrets scan on the default branch when the app is installed.
   install:
-    trigger: true
+    trigger: false
     branches_to_run:
       - default_branch
 
@@ -96,12 +96,12 @@ veracode-iac-secrets-scan:
   # pull request event. Specifying both will only execute push event.
   # Leaving them both false means this will never run
   push:
-    trigger: false
+    trigger: true
     branches_to_run:
       - "*"
     branches_to_exclude:
   pull_request:
-    trigger: false
+    trigger: tue
     action:
       - opened
       - synchronize
