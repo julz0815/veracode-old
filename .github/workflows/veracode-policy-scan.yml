@@ -61,7 +61,7 @@ jobs:
           echo GUID: ${guid}
           total_flaws=$(http --auth-type veracode_hmac GET "https://api.veracode.com/appsec/v2/applications/${guid}/findings?scan_type=STATIC&violates_policy=True" | jq -r '[._embedded.findings[] | select ( .finding_status.status == "OPEN" )] | length')
           echo TOTAL_FLAWS: ${total_flaws}
-          http --auth-type veracode_hmac GET "https://api.veracode.com/appsec/v2/applications/${guid}/findings?scan_type=STATIC&violates_policy=True&size=${total_flaws} | jq -r '[._embedded.findings[] | select ( .finding_status.status == "OPEN" )] | length'" > policy_flaws.json
+          http --auth-type veracode_hmac GET "https://api.veracode.com/appsec/v2/applications/${guid}/findings?scan_type=STATIC&violates_policy=True&size=${total_flaws} | jq -r '[._embedded.findings[] | select ( .finding_status.status == "OPEN" )]'" > policy_flaws.json
           results_url=$(http --auth-type veracode_hmac GET "https://api.veracode.com/appsec/v1/applications/${guid}" | jq -r '.results_url')
           echo "https://analysiscenter.veracode.com/auth/index.jsp#${results_url}" > results_url.txt     
       - name: save results file
