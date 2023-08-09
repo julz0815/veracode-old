@@ -23,7 +23,7 @@ jobs:
        
   veracode-sca-scan:
     needs: [register]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     name: Veracode Component Analysis
 
     steps:
