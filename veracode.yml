@@ -53,6 +53,8 @@ veracode_sast_policy_scan:
   #If the break_build_on_policy_error is set to true, this is the error message that will be displayed if the pipeline scan fails to complete in time or with an error.
   error_message: "Veracode SAST scan faced a problem. Please contact your Veracode administrator for more information. If you are a Veracode administrator, please contact Veracode support."
   policy: 'Veracode Recommended Medium + SCA'
+  #Only use this with an individual configuration on an individual repository. Specify a single module or a comma separated list of module to be selected as entrypoint. You can use glob wildcard format (* or ? for example).
+  #modules_to_scan: ''
   compile_locally: false
   local_compilation_workflow: veracode-build
 
