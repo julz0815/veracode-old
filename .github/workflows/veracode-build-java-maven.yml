@@ -22,7 +22,7 @@ jobs:
         repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
         token: ${{ inputs.token }}
-    - uses: actions/setup-java@vv
+    - uses: actions/setup-java@v3
       with:
         java-version: 1.8
         distribution: oracle
