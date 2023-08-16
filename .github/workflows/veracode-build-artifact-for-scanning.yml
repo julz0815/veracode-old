@@ -50,7 +50,7 @@ jobs:
       token: ${{ inputs.token }}
 
   build-scala:
-    if: if: ${{ inputs.event_name == 'scala-pipeline-scan' || inputs.event_name == 'scala-policy-scan' }}
+    if: ${{ inputs.event_name == 'scala-pipeline-scan' || inputs.event_name == 'scala-policy-scan' }}
     uses: ./.github/workflows/veracode-build-scala.yml
     with:
       repository: ${{ inputs.repository }}
