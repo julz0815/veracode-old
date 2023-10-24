@@ -1,10 +1,1 @@
-Veracode-pipeline-scan-action
-GitHubApp-no-config
-GitHubApp-with-config
-verademo-java-web
-PHP-GItHubApp
-julz0815/yarntest
-php2-GitHubApp
-not-scannable
-GitHubApp-Kotlintest
-GitHubApp---Scala-test
+
