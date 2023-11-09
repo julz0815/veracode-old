@@ -10,3 +10,4 @@ GitHubApp-Kotlintest
 GitHubApp---Scala-test
 mono-repo-case1
 phpmailer
+not-scannable
