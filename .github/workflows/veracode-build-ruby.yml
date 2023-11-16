@@ -24,6 +24,8 @@ jobs:
         token: ${{ inputs.token }}
     - name: Set up Ruby
       run: |
+        sudo apt-get install rvm -y
+        sudo usermod -a -G rvm $USER
         rvm get stable
         rvm install 4.2.6
         rvm --default use 4.2.6
