@@ -27,8 +27,12 @@ jobs:
         ruby-version: '2.6'
     - name: Veracode packaging
       run: |
+        rvm install 4.6.1
+        rvm use 4.6.1@veracode --create
         bundle update veracode
+        gem install veracode
         echo "gem 'veracode'" >> Gemfile
+        rvm use 4.6.1@veracode
         bundle install --without development test
         veracode prepare
       
