@@ -24,7 +24,7 @@ jobs:
         token: ${{ inputs.token }}
     - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '4.6.1'
+        ruby-version: '2.6'
     - name: Veracode packaging
       run: |
         bundle update veracode
