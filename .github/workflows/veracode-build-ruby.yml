@@ -22,17 +22,14 @@ jobs:
         repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
         token: ${{ inputs.token }}
-    - name: Set up Ruby 2.6
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: 2.6
+#    - name: Set up Ruby 2.6
+#      uses: actions/setup-ruby@v1
+#      with:
+#        ruby-version: 2.6
     - name: Veracode packaging
       run: |
-        rvm install 2.6
-        rvm use 2.6@veracode --create
         bundle update veracode
         echo "gem 'veracode'" >> Gemfile
-        rvm use 2.6@veracode
         bundle install --without development test
         veracode prepare
       
