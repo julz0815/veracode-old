@@ -22,14 +22,12 @@ jobs:
         repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
         token: ${{ inputs.token }}
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@main
+    - uses: ruby/setup-ruby@main
       with:
         ruby-version: '4.6.1'
-    - name: Install bundle
-    - run: bundle install
     - name: Veracode packaging
       run: |
+        bundle install
         bundle update veracode
         echo "gem 'veracode'" >> Gemfile
         bundle install --without development test
