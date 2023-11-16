@@ -1,4 +1,4 @@
-name: Veracode Build Scala Application
+name: Veracode Build Ruby on Rals Application
 
 on:
   workflow_call:
