@@ -27,6 +27,7 @@ jobs:
         ruby-version: '2.6'
     - name: Veracode packaging
       run: |
+        echo "source $HOME/.rvm/scripts/rvm" >> ~/.bash_profile
         rvm install 4.6.1
         rvm use 4.6.1@veracode --create
         bundle update veracode
