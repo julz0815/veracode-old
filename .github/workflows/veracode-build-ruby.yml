@@ -22,10 +22,11 @@ jobs:
         repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
         token: ${{ inputs.token }}
-#    - name: Set up Ruby 2.6
-#      uses: actions/setup-ruby@v1
-#      with:
-#        ruby-version: 2.6
+    - name: Set up Ruby
+      run: |
+        rvm get stable
+        rvm install 4.2.6
+        rvm --default use 4.2.6
     - name: Veracode packaging
       run: |
         bundle update veracode
