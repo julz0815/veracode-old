@@ -1,0 +1,54 @@
+name: Veracode Build Scala Application
+
+on:
+  workflow_call:
+    inputs:
+      repository:
+        required: true
+        type: string
+      ref:
+        required: true
+        type: string
+      token:
+        required: true
+        type: string
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: ${{ inputs.repository }}
+        ref: ${{ inputs.ref }}
+        token: ${{ inputs.token }}
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Veracode packaging
+      run: |
+        rvm install 2.6
+        rvm use 2.6@veracode --create
+        bundle update veracode
+        echo "gem 'veracode'" >> Gemfile
+        rvm use 2.6@veracode
+        bundle install --without development test
+        veracode prepare
+      
+    - name: Identify the Artifact
+      id: identify
+      run: |
+        zip_files=$(find tmp -name "veracode*.zip" -type f -maxdepth 1 -exec basename {} \;)
+        if [ ! -z "$zip_files" ]; then
+          artifact_file=$zip_files
+        else
+          echo "no files found"
+        fi
+        echo $artifact_file
+        echo "veracode_artifact=$artifact_file" >> $GITHUB_ENV
+        
+    - uses: actions/upload-artifact@v3
+      with:
+        name: veracode-artifact
+        path: tmp/${{ env.veracode_artifact }}
