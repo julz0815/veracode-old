@@ -23,7 +23,7 @@ jobs:
         ref: ${{ inputs.ref }}
         token: ${{ inputs.token }}
     - name: Set up Ruby
-    - uses: ruby/setup-ruby@main
+      uses: ruby/setup-ruby@main
       with:
         ruby-version: '4.6.1'
     - name: Install bundle
