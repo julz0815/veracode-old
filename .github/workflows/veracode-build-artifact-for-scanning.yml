@@ -56,5 +56,13 @@ jobs:
       repository: ${{ inputs.repository }}
       ref: ${{ inputs.ref }}
       token: ${{ inputs.token }}
+
+  build-ruby:
+    if: ${{ inputs.event_name == 'ruby-pipeline-scan' || inputs.event_name == 'ruby-policy-scan' }}
+    uses: ./.github/workflows/veracode-build-ruby.yml
+    with:
+      repository: ${{ inputs.repository }}
+      ref: ${{ inputs.ref }}
+      token: ${{ inputs.token }}
       
       
