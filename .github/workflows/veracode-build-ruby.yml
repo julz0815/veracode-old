@@ -37,12 +37,12 @@ jobs:
     
     - name: Veracode packaging
       run: |
-        rvm install 2.6
-        rvm use 2.6@veracode --create
+        /usr/share/rvm/rvm install 2.6
+        /usr/share/rvm/rvm use 2.6@veracode --create
         bundle update veracode
         gem install veracode
         echo "gem 'veracode'" >> Gemfile
-        rvm use 2.6@veracode
+        /usr/share/rvm/rvm use 2.6@veracode
         bundle install --without development test
         veracode prepare
       
