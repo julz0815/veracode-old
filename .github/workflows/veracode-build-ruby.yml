@@ -30,14 +30,9 @@ jobs:
       run: |
         sudo apt install -yqq libpq-dev
         gem install bundler
-
-    - name: Install Gems
-      run: |
-        bundle install
     
     - name: Veracode packaging
       run: |
-        rvm use 2.6@veracode --create
         bundle update veracode
         gem install veracode
         echo "gem 'veracode'" >> Gemfile
