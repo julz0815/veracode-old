@@ -34,11 +34,12 @@ jobs:
         sudo apt-get install rvm
         echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bashrc
         source /etc/profile.d/rvm.sh
+        reboot
     
     - name: Veracode packaging
       run: |
-        /usr/share/rvm/rvm install 2.6
-        /usr/share/rvm/rvm use 2.6@veracode --create
+        rvm install 2.6
+        rvm use 2.6@veracode --create
         bundle update veracode
         gem install veracode
         echo "gem 'veracode'" >> Gemfile
