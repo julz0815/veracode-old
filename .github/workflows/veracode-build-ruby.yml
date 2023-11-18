@@ -31,7 +31,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install rvm
         source /etc/profile.d/rvm.sh
-        rvm install 4.6.1
+        rvm install 2.6
         rvm use 4.6.1@veracode --create
         bundle update veracode
         gem install veracode
