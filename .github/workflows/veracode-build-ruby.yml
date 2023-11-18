@@ -26,10 +26,12 @@ jobs:
       with:
         ruby-version: '2.6'
 
-    - name: Install Dependencies
+    - name: Install RVM
       run: |
-        sudo apt install -yqq libpq-dev
-        gem install bundler
+        sudo apt-get install software-properties-common
+        sudo apt-add-repository -y ppa:rael-gc/rvm
+        sudo apt-get update
+        sudo apt-get install rvm
     
     - name: Veracode packaging
       run: |
