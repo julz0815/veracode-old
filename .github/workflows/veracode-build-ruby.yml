@@ -25,18 +25,28 @@ jobs:
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: '2.6'
+
+    - name: Install Dependencies
+      run: |
+          sudo apt install -yqq libpq-dev
+          gem install bundler
+
+    - name: Install Gems
+      run: |
+        bundle install
+    
     - name: Veracode packaging
       run: |
-        sudo apt-add-repository -y ppa:rael-gc/rvm
-        sudo apt-get update
-        sudo apt-get install rvm
-        source /etc/profile.d/rvm.sh
-        rvm install 2.6
-        rvm use 4.6.1@veracode --create
+ #       sudo apt-add-repository -y ppa:rael-gc/rvm
+ #       sudo apt-get update
+ #       sudo apt-get install rvm
+ #       source /etc/profile.d/rvm.sh
+ #       rvm install 2.6
+        rvm use 2.6@veracode --create
         bundle update veracode
         gem install veracode
         echo "gem 'veracode'" >> Gemfile
-        rvm use 4.6.1@veracode
+        rvm use 2.6@veracode
         bundle install --without development test
         veracode prepare
       
