@@ -34,6 +34,7 @@ jobs:
         sudo apt-get install rvm
         echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bashrc
         source /etc/profile.d/rvm.sh
+        sudo usermod -a -G rvm $USER
     
     - name: Veracode packaging
       run: |
