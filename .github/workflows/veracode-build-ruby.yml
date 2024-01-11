@@ -38,6 +38,8 @@ jobs:
     
     - name: Veracode packaging
       run: |
+        source /etc/profile.d/rvm.sh
+        sudo usermod -a -G rvm $USER
         export GOPATH=`go env GOPATH` &&
         export PATH="$GOPATH/bin:$PATH" &&
         go install github.com/relaxnow/vcrbpkg/cmd/vcrbpkg@latest
