@@ -40,7 +40,7 @@ jobs:
       run: |
         export GOPATH=`go env GOPATH` &&
         export PATH="$GOPATH/bin:$PATH" &&
-        go install github.com/relaxnow/vcrbpkg@latest
+        go install github.com/relaxnow/vcrbpkg/cmd/vcrbpkg@latest
         vcrbpkg
       
     - name: Identify the Artifact
