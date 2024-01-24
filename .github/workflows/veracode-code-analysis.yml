@@ -29,6 +29,12 @@ on:
        - plsql-pipeline-scan
        - plsql-policy-scan
        - plsql-sansbox-scan
+       - go-pipeline-scan
+       - go-policy-scan
+       - go-sandbox-scan
+       - dart-pipeline-scan
+       - dart-policy-scan
+       - dart-sandbox-scan
        - source-code-pipeline-scan
        - source-code-policy-scan
        - source-code-sandbox-scan
