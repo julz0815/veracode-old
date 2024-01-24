@@ -4,7 +4,34 @@ run-name: Static Code Analysis - ${{ github.event.client_payload.repository.name
 
 on:
   repository_dispatch:
-    types: [scala-pipeline-scan, scala-policy-scan, java-maven-pipeline-scan, java-gradle-pipeline-scan, source-code-pipeline-scan, dot-net-pipeline-scan, java-maven-policy-scan, java-gradle-policy-scan, source-code-policy-scan, ruby-policy-scan, ruby-pipeline-scan]
+    types: 
+       - scala-pipeline-scan
+       - scala-policy-scan
+       - scala-sandbox-scan
+       - java-maven-pipeline-scan
+       - java-maven-policy-scan
+       - java-maven-sandbox-scan
+       - java-gradle-pipeline-scan
+       - java-gradle-policy-scan
+       - java-gradle-sandbox-scan
+       - ruby-pipeline-scan
+       - ruby-policy-scan
+       - ruby-sandbox-scan
+       - dot-net-pipeline-scan
+       - dot-net-policy-scan
+       - dot-net-sandbox-scan
+       - php-pipeline-scan
+       - php-policy-scan
+       - php-sandbox-scan
+       - tsql-pipeline-scan
+       - tsql-policy-scan
+       - tsql-sandbox-scan
+       - plsql-pipeline-scan
+       - plsql-policy-scan
+       - plsql-sansbox-scan
+       - source-code-pipeline-scan
+       - source-code-policy-scan
+       - source-code-sandbox-scan
 
 jobs:
   register:
