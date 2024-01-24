@@ -46,3 +46,13 @@ jobs:
       profile_name: ${{ github.event.client_payload.profile_name }}
       moddules_to_scan: ${{ github.event.client_payload.modules_to_scan }}
     secrets: inherit
+
+  sanbox_scan:
+    needs: build
+    if: contains(github.event.action, 'sandbox')
+    uses: ./.github/workflows/veracode-sandbox-scan.yml
+    with:
+      profile_name: ${{ github.event.client_payload.profile_name }}
+      moddules_to_scan: ${{ github.event.client_payload.modules_to_scan }}
+      branch: ${{ github.event.client_payload.branch }}
+    secrets: inherit
